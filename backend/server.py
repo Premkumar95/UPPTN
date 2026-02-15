@@ -51,10 +51,22 @@ class UserRegister(BaseModel):
     name: str
     email: EmailStr
     phone: str = Field(..., pattern=r'^[+]?[0-9]{10,15}$')
-    password: str = Field(..., min_length=6)
+    password: str = Field(..., min_length=8)
     pin: str = Field(..., pattern=r'^[0-9]{4}$')
     pin_confirm: str = Field(..., pattern=r'^[0-9]{4}$')
     role: str = Field(..., pattern=r'^(user|provider)$')
+    
+    @classmethod
+    def validate_password(cls, password: str) -> str:
+        if len(password) < 8:
+            raise ValueError('Password must be at least 8 characters')
+        if not any(c.islower() for c in password):
+            raise ValueError('Password must contain at least one lowercase letter')
+        if not any(c.isupper() for c in password):
+            raise ValueError('Password must contain at least one uppercase letter')
+        if not any(c in '!@#$%^&*()_+-=[]{}|;:,.<>?' for c in password):
+            raise ValueError('Password must contain at least one special character')
+        return password
     
 class ProviderDetails(BaseModel):
     upi_id: Optional[str] = None
