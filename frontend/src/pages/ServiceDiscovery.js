@@ -215,16 +215,16 @@ const ServiceDiscovery = () => {
                       <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.description}</p>
                       <div className="space-y-3">
                         {service.district && (
-                          <div className="flex items-center gap-2 text-sm bg-blue-50 p-2 rounded-lg">
-                            <MapPin className="h-4 w-4 text-blue-600" />
-                            <span className="font-semibold text-blue-900">{service.district}</span>
+                          <div className="flex items-center gap-2 text-sm bg-slate-700/50 p-2 rounded-lg">
+                            <MapPin className="h-4 w-4 text-blue-400" />
+                            <span className="font-semibold text-slate-200">{service.district}</span>
                           </div>
                         )}
-                        <div className="flex items-center justify-between p-3 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg">
-                          <span className="text-sm font-medium">Price:</span>
+                        <div className="flex items-center justify-between p-3 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg">
+                          <span className="text-sm font-medium text-slate-300">Price:</span>
                           <span className="text-xl font-bold text-primary">₹{service.base_price}</span>
                         </div>
-                        <div className="text-xs text-muted-foreground bg-gray-50 p-2 rounded">
+                        <div className="text-xs text-muted-foreground bg-slate-800/50 p-2 rounded">
                           <strong>Provider:</strong> {service.provider?.name || 'N/A'}
                         </div>
                       </div>
