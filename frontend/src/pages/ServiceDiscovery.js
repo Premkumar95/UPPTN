@@ -114,22 +114,13 @@ const ServiceDiscovery = () => {
           {/* Filters */}
           <Card className="mb-8 border-2 shadow-lg">
             <CardContent className="pt-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="lg:col-span-2">
-                  <Input
-                    placeholder="Search services (e.g., JCB, Packers, Drilling...)"
-                    data-testid="search-input"
-                    className="h-12 text-base"
-                    value={filters.keyword}
-                    onChange={(e) => handleFilterChange('keyword', e.target.value)}
-                  />
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Select value={filters.district || 'all'} onValueChange={(value) => handleFilterChange('district', value === 'all' ? '' : value)}>
                   <SelectTrigger data-testid="district-select" className="h-12">
-                    <SelectValue placeholder="Select District" />
+                    <SelectValue placeholder={t('selectDistrict')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Districts</SelectItem>
+                    <SelectItem value="all">{t('allDistricts')}</SelectItem>
                     {districts.map((dist) => (
                       <SelectItem key={dist} value={dist}>{dist}</SelectItem>
                     ))}
@@ -137,10 +128,10 @@ const ServiceDiscovery = () => {
                 </Select>
                 <Select value={filters.category || 'all'} onValueChange={(value) => handleFilterChange('category', value === 'all' ? '' : value)}>
                   <SelectTrigger data-testid="category-select" className="h-12">
-                    <SelectValue placeholder="Select Category" />
+                    <SelectValue placeholder={t('selectCategory')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="all">All Categories</SelectItem>
+                    <SelectItem value="all">{t('allCategories')}</SelectItem>
                     {categories.map((cat) => (
                       <SelectItem key={cat} value={cat}>{cat}</SelectItem>
                     ))}
@@ -150,7 +141,7 @@ const ServiceDiscovery = () => {
               
               {/* Items per page selector */}
               <div className="flex items-center gap-4 mt-4">
-                <span className="text-sm text-slate-300">Show:</span>
+                <span className="text-sm text-slate-300">{t('show')}:</span>
                 <Select value={itemsPerPage.toString()} onValueChange={(value) => { setItemsPerPage(Number(value)); setCurrentPage(1); }}>
                   <SelectTrigger className="w-24 h-10">
                     <SelectValue />
@@ -163,7 +154,7 @@ const ServiceDiscovery = () => {
                     <SelectItem value="50">50</SelectItem>
                   </SelectContent>
                 </Select>
-                <span className="text-sm text-slate-400">services per page</span>
+                <span className="text-sm text-slate-400">{t('servicesPerPage')}</span>
               </div>
             </CardContent>
           </Card>
