@@ -169,7 +169,7 @@ const ServiceDiscovery = () => {
           ) : (
             <>
               <div className="mb-6 text-slate-300">
-                Showing {startIndex + 1}-{Math.min(endIndex, services.length)} of {services.length} services
+                {t('showing')} {startIndex + 1}-{Math.min(endIndex, services.length)} {t('of')} {services.length} {t('servicesText')}
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {currentServices.map((service, index) => (
