@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 import uuid
 import bcrypt
 
-# Tamil Nadu Districts
+# TamilNadu Districts
 DISTRICTS = [
     "Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri",
     "Dindigul", "Erode", "Kallakurichi", "Kanchipuram", "Karur", "Krishnagiri",
@@ -27,18 +27,18 @@ CATEGORIES = {
 
 # Sample company names
 COMPANY_NAMES = {
-    "Earth Movers": ["Sri Lakshmi Excavators", "Murugan JCB Services", "Tamil Nadu Earth Movers", "Selva Digging Works"],
+    "Earth Movers": ["Sri Lakshmi Excavators", "Murugan JCB Services", "TamilNadu Earth Movers", "Selva Digging Works"],
     "Packers and Movers": ["Fast Track Packers", "Safe Move Logistics", "Tamil Relocations", "Express Movers"],
-    "Lorry Services": ["Bharathi Transport", "Speed Cargo Services", "Tamil Nadu Lorry Transport", "Express Logistics"],
+    "Lorry Services": ["Bharathi Transport", "Speed Cargo Services", "TamilNadu Lorry Transport", "Express Logistics"],
     "Bore Well": ["Deepam Bore Well", "Amman Water Drilling", "Tamil Bore Well Services", "Professional Drillers"],
-    "Power Tools": ["Kumar Equipment Rentals", "Pro Tools Hire", "Construction Equipment Hub", "Power Tools Tamil Nadu"]
+    "Power Tools": ["Kumar Equipment Rentals", "Pro Tools Hire", "Construction Equipment Hub", "Power Tools TamilNadu"]
 }
 
 # Sample descriptions
 DESCRIPTIONS = {
     "Earth Movers": "Professional earth moving services with modern JCB and excavators. Available for construction, land leveling, and excavation works.",
     "Packers and Movers": "Trusted packing and moving services. Safe transportation of household and office goods with insurance coverage.",
-    "Lorry Services": "Reliable lorry transportation services for cargo and goods. Door-to-door delivery across Tamil Nadu.",
+    "Lorry Services": "Reliable lorry transportation services for cargo and goods. Door-to-door delivery across TamilNadu.",
     "Bore Well": "Expert bore well drilling services with advanced equipment. Water testing and pump installation included.",
     "Power Tools": "Wide range of construction equipment and power tools for rent. Daily and monthly rental options available."
 }
@@ -74,7 +74,7 @@ async def seed_database():
                 company_name = random.choice(COMPANY_NAMES[category])
                 provider_name = f"{company_name} - {district}"
                 
-                # Generate phone number (Tamil Nadu area codes: 044, 0422, etc.)
+                # Generate phone number (TamilNadu area codes: 044, 0422, etc.)
                 area_codes = ['044', '0422', '0431', '04543', '0451']
                 phone = f"+91{random.choice(area_codes)}{random.randint(1000000, 9999999)}"
                 email = f"{company_name.lower().replace(' ', '')}_{district.lower()}@example.com"
@@ -131,7 +131,7 @@ async def seed_database():
                     services_created += 1
     
     print(f"✅ Created {providers_created} service providers")
-    print(f"✅ Created {services_created} services across all Tamil Nadu districts")
+    print(f"✅ Created {services_created} services across all TamilNadu districts")
     print("🎉 Database seeding completed!")
     
     client.close()
