@@ -182,6 +182,12 @@ otp_storage = {}
 
 @api_router.post("/auth/register")
 async def register_user(data: UserRegister):
+    # Validate password
+    try:
+        UserRegister.validate_password(data.password)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    
     if data.pin != data.pin_confirm:
         raise HTTPException(status_code=400, detail="Pin does not match")
     
