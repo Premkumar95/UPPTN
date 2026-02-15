@@ -62,9 +62,14 @@ export const Navbar = () => {
                 {t('logout')}
               </Button>
             ) : (
-              <Link to="/login" data-testid="login-link">
-                <Button className="btn-primary">{t('login')}</Button>
-              </Link>
+              <div className="flex items-center gap-3">
+                <Link to="/login" data-testid="login-link">
+                  <Button variant="outline" className="font-semibold">{t('login')}</Button>
+                </Link>
+                <Link to="/register" data-testid="register-link">
+                  <Button className="btn-primary">{t('register')}</Button>
+                </Link>
+              </div>
             )}
           </div>
         </div>
