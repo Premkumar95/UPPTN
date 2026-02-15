@@ -1,0 +1,149 @@
+{
+  "identity": {
+    "persona": "E1: The Anti-AI Designer",
+    "tone": "Industrial, Reliable, High-Contrast, Local, Efficient",
+    "archetype": "Industrial Pop",
+    "mission": "Create a robust, high-visibility marketplace for heavy services that feels like a premium tool, not a generic SaaS."
+  },
+  "typography": {
+    "headings": {
+      "family": "Chivo, sans-serif",
+      "weights": ["700", "900"],
+      "usage": "Use for all major headings. Tight tracking (-0.02em). uppercase for section titles.",
+      "fallback": "Arial, sans-serif"
+    },
+    "body": {
+      "family": "Manrope, sans-serif",
+      "weights": ["400", "500", "600"],
+      "usage": "Use for all UI text, data, and descriptions. highly legible for numbers.",
+      "fallback": "sans-serif"
+    },
+    "tamil": {
+      "family": "Mukta Malar, sans-serif",
+      "weights": ["400", "700"],
+      "usage": "Use exclusively for Tamil language content. Ensure 1.5x line height.",
+      "fallback": "sans-serif"
+    }
+  },
+  "colors": {
+    "light_theme": {
+      "background": "#F8FAFC",
+      "foreground": "#0F172A",
+      "primary": "#F97316",
+      "primary_foreground": "#FFFFFF",
+      "secondary": "#1E293B",
+      "secondary_foreground": "#FFFFFF",
+      "accent": "#FACC15",
+      "accent_foreground": "#0F172A",
+      "muted": "#F1F5F9",
+      "muted_foreground": "#64748B",
+      "border": "#E2E8F0",
+      "input": "#E2E8F0",
+      "ring": "#F97316"
+    },
+    "dark_theme": {
+      "background": "#020617",
+      "foreground": "#F8FAFC",
+      "primary": "#F97316",
+      "primary_foreground": "#FFFFFF",
+      "secondary": "#1E293B",
+      "secondary_foreground": "#F8FAFC",
+      "accent": "#EAB308",
+      "accent_foreground": "#020617",
+      "muted": "#0F172A",
+      "muted_foreground": "#94A3B8",
+      "border": "#1E293B",
+      "input": "#1E293B",
+      "ring": "#F97316"
+    },
+    "status": {
+      "success": "#22C55E",
+      "warning": "#F59E0B",
+      "error": "#EF4444",
+      "info": "#3B82F6"
+    }
+  },
+  "spacing_layout": {
+    "scale": [0, 4, 8, 12, 16, 24, 32, 48, 64, 96, 128],
+    "container_padding": "p-4 md:p-8 lg:p-12",
+    "grid_gap": "gap-4 md:gap-6",
+    "bento_grid": "Use grid-cols-1 md:grid-cols-3 lg:grid-cols-4. Span 2 cols for key services.",
+    "border_radius": "rounded-sm md:rounded-md",
+    "shadows": "shadow-sm hover:shadow-md transition-shadow duration-200"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-primary-foreground hover:bg-primary/90 rounded-sm font-bold uppercase tracking-wide",
+      "secondary": "bg-secondary text-secondary-foreground hover:bg-secondary/90 rounded-sm",
+      "outline": "border-2 border-primary text-primary hover:bg-primary/10 rounded-sm font-bold"
+    },
+    "cards": {
+      "style": "bg-card border border-border shadow-sm hover:border-primary/50 transition-colors duration-200 rounded-lg overflow-hidden",
+      "content_padding": "p-6"
+    },
+    "inputs": {
+      "style": "bg-background border-2 border-input focus:border-primary focus:ring-0 rounded-sm h-12"
+    },
+    "navbar": {
+      "style": "sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
+      "logo": "font-extrabold text-2xl tracking-tighter text-primary"
+    }
+  },
+  "visual_enhancers": {
+    "texture": "Use subtle noise overlay on backgrounds to give a 'concrete' feel.",
+    "gradients": "Avoid full screen gradients. Use mesh gradients only in hero sections: 'bg-gradient-to-br from-primary/20 via-background to-background'.",
+    "motion": {
+      "library": "framer-motion",
+      "fade_in": {
+        "initial": { "opacity": 0, "y": 20 },
+        "animate": { "opacity": 1, "y": 0 },
+        "transition": { "duration": 0.4 }
+      },
+      "hover": {
+        "scale": 1.02,
+        "transition": { "duration": 0.2 }
+      }
+    }
+  },
+  "images": {
+    "hero": [
+      {
+        "url": "https://images.unsplash.com/photo-1761504537447-e39a3085d697?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwzfHx5ZWxsb3clMjBleGNhdmF0b3IlMjBjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwaGVhdnklMjBtYWNoaW5lcnl8ZW58MHx8fHwxNzcxMTMzODM0fDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Night construction site with excavators",
+        "category": "hero_background"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1766595680974-e63877a2ab5b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHw0fHx5ZWxsb3clMjBleGNhdmF0b3IlMjBjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwaGVhdnklMjBtYWNoaW5lcnl8ZW58MHx8fHwxNzcxMTMzODM0fDA&ixlib=rb-4.1.0&q=85",
+        "alt": "Yellow excavator working",
+        "category": "service_earth_mover"
+      }
+    ],
+    "people": [
+      {
+        "url": "https://images.unsplash.com/photo-1644331683064-37e3fabb07af?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHw0fHxjb25zdHJ1Y3Rpb24lMjB3b3JrZXIlMjBsb2dpc3RpY3MlMjBzbWlsZSUyMGluZGlhfGVufDB8fHx8MTc3MTEzMzgzOXww&ixlib=rb-4.1.0&q=85",
+        "alt": "Construction worker portrait",
+        "category": "testimonial_avatar"
+      }
+    ],
+    "icons": {
+      "library": "lucide-react",
+      "style": "stroke-width=2"
+    }
+  },
+  "universal_guidelines": {
+    "rules": [
+      "Do not use gradients for dark colors.",
+      "Avoid generic centered layouts; use asymmetry.",
+      "Use 'sonner' for toasts.",
+      "Components MUST use named exports.",
+      "Pages MUST use default exports.",
+      "All interactive elements MUST include data-testid.",
+      "Use 'Mukta Malar' font for any Tamil text.",
+      "Always provide English/Tamil toggle.",
+      "Use Google Maps API for location picking."
+    ],
+    "accessibility": "Ensure 4.5:1 contrast ratio. Use aria-labels for icon-only buttons.",
+    "mobile_first": "Design for 360px width first. Images max-h-[60vh] on mobile."
+  },
+  "instructions_to_main_agent": "1. Set up the theme provider with the specified colors. 2. Install 'Mukta Malar' and 'Chivo' fonts from Google Fonts. 3. Build the 'Bento Grid' layout for the service category page. 4. Implement the dual registration flow (User vs Provider) with high-contrast distinct styles (e.g., User=Orange, Provider=Slate). 5. Use the provided image URLs for the landing page hero and testimonials."
+}
