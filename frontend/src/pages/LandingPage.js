@@ -39,22 +39,22 @@ const LandingPage = () => {
             className="max-w-3xl"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight text-white">
-              Find Trusted Service Providers Across <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">TamilNadu</span>
+              {t('findTrusted')} <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">TamilNadu</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 mb-8">
-              Connect with verified earth movers, packers, bore well services, and power tool rentals in your district.
+              {t('connectWith')}
             </p>
             <div className="flex flex-wrap gap-4">
               {!user ? (
                 <>
                   <Link to="/register" data-testid="get-started-btn">
                     <Button size="lg" className="btn-primary gap-2">
-                      Get Started <ArrowRight className="h-5 w-5" />
+                      {t('getStarted')} <ArrowRight className="h-5 w-5" />
                     </Button>
                   </Link>
                   <Link to="/services" data-testid="browse-services-btn">
-                    <Button size="lg" variant="outline" className="gap-2">
-                      <Search className="h-5 w-5" /> Browse Services
+                    <Button size="lg" variant="outline" className="gap-2 border-slate-600 text-slate-200 hover:bg-slate-800">
+                      <Search className="h-5 w-5" /> {t('browseServices')}
                     </Button>
                   </Link>
                 </>
