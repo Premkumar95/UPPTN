@@ -249,6 +249,57 @@ const ServiceDiscovery = () => {
                 </motion.div>
               ))}
             </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+                <Button
+                  variant="outline"
+                  onClick={() => goToPage(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="border-slate-600 text-slate-200 hover:bg-slate-800"
+                >
+                  Previous
+                </Button>
+                
+                {[...Array(totalPages)].map((_, index) => {
+                  const pageNum = index + 1;
+                  // Show first page, last page, current page and 2 pages around current
+                  if (
+                    pageNum === 1 ||
+                    pageNum === totalPages ||
+                    (pageNum >= currentPage - 2 && pageNum <= currentPage + 2)
+                  ) {
+                    return (
+                      <Button
+                        key={pageNum}
+                        variant={currentPage === pageNum ? 'default' : 'outline'}
+                        onClick={() => goToPage(pageNum)}
+                        className={currentPage === pageNum 
+                          ? 'bg-primary text-white' 
+                          : 'border-slate-600 text-slate-200 hover:bg-slate-800'
+                        }
+                      >
+                        {pageNum}
+                      </Button>
+                    );
+                  } else if (pageNum === currentPage - 3 || pageNum === currentPage + 3) {
+                    return <span key={pageNum} className="text-slate-400">...</span>;
+                  }
+                  return null;
+                })}
+                
+                <Button
+                  variant="outline"
+                  onClick={() => goToPage(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="border-slate-600 text-slate-200 hover:bg-slate-800"
+                >
+                  Next
+                </Button>
+              </div>
+            )}
+          </>
           )}        </motion.div>
       </div>
       <Footer />
