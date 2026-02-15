@@ -33,12 +33,29 @@ const RegisterPage = () => {
     contact: '',
     otp: '',
   });
+  const [errors, setErrors] = useState({});
+
+  const validatePassword = (password) => {
+    const errors = [];
+    if (password.length < 8) errors.push('At least 8 characters');
+    if (!/[a-z]/.test(password)) errors.push('One lowercase letter');
+    if (!/[A-Z]/.test(password)) errors.push('One uppercase letter');
+    if (!/[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]/.test(password)) errors.push('One special character');
+    return errors;
+  };
 
   const handleRegister = async (e) => {
     e.preventDefault();
     
+    const passwordErrors = validatePassword(formData.password);
+    if (passwordErrors.length > 0) {
+      toast.error(`Password must contain: ${passwordErrors.join(', ')}`);
+      return;
+    }
+    
     if (formData.pin !== formData.pin_confirm) {
       toast.error('Pin does not match');
+      setErrors({ pin_confirm: 'Pin does not match' });
       return;
     }
 
