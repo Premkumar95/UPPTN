@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import { toast } from 'sonner';
@@ -9,13 +9,14 @@ import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
-import { Search, MapPin, Star } from 'lucide-react';
+import { Search, MapPin, Star, Award } from 'lucide-react';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 const ServiceDiscovery = () => {
   const { t } = useLanguage();
+  const [searchParams] = useSearchParams();
   const [services, setServices] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -23,7 +24,7 @@ const ServiceDiscovery = () => {
   const [filters, setFilters] = useState({
     keyword: '',
     district: '',
-    category: '',
+    category: searchParams.get('category') || '',
   });
 
   useEffect(() => {
