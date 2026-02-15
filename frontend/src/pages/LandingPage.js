@@ -15,6 +15,7 @@ const LandingPage = () => {
   const categories = [
     { name: 'Earth Movers', icon: Truck, color: 'bg-orange-100 text-orange-600' },
     { name: 'Packers & Movers', icon: Package, color: 'bg-blue-100 text-blue-600' },
+    { name: 'Lorry Services', icon: Truck, color: 'bg-purple-100 text-purple-600' },
     { name: 'Power Tools', icon: Wrench, color: 'bg-green-100 text-green-600' },
     { name: 'Bore Well', icon: Droplet, color: 'bg-cyan-100 text-cyan-600' },
   ];
