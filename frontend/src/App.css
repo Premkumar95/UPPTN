@@ -1,5 +1,5 @@
 .App-header {
-    background-color: #0f0f10;
+    background-color: #0f172a;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -11,4 +11,10 @@
 
 .App-link {
     color: #F97316;
+}
+
+/* Force proper background color */
+html, body, #root, .App {
+    background-color: #F8FAFC !important;
+    min-height: 100vh;
 }
