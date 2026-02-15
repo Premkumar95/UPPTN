@@ -86,21 +86,22 @@ const LandingPage = () => {
             {categories.map((category, index) => {
               const Icon = category.icon;
               return (
-                <motion.div
-                  key={category.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-md hover:border-primary/50 transition-all duration-200 cursor-pointer"
-                  data-testid={`category-card-${index}`}
-                >
-                  <div className={`${category.color} w-12 h-12 rounded-sm flex items-center justify-center mb-4`}>
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="font-bold text-xl mb-2">{category.name}</h3>
-                  <p className="text-muted-foreground text-sm">Professional and verified service providers</p>
-                </motion.div>
+                <Link key={category.name} to={`/services?category=${encodeURIComponent(category.name)}`} data-testid={`category-link-${index}`}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    className="bg-card border-2 border-border rounded-xl p-6 shadow-lg hover:shadow-2xl hover:border-primary transition-all duration-300 cursor-pointer"
+                    data-testid={`category-card-${index}`}
+                  >
+                    <div className={`${category.color} w-16 h-16 rounded-xl flex items-center justify-center mb-4 shadow-md`}>
+                      <Icon className="h-8 w-8" />
+                    </div>
+                    <h3 className="font-bold text-xl mb-2">{category.name}</h3>
+                    <p className="text-muted-foreground text-sm">Professional and verified service providers</p>
+                  </motion.div>
+                </Link>
               );
             })}
           </div>
