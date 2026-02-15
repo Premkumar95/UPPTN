@@ -133,6 +133,7 @@ const LoginPage = () => {
           </Card>
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 };
