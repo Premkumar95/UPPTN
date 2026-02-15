@@ -12,9 +12,3 @@
 .App-link {
     color: #F97316;
 }
-
-/* Force proper background color */
-html, body, #root, .App {
-    background-color: #F8FAFC !important;
-    min-height: 100vh;
-}
