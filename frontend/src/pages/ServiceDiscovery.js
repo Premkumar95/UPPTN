@@ -22,6 +22,8 @@ const ServiceDiscovery = () => {
   const [districts, setDistricts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(15);
   const [filters, setFilters] = useState({
     keyword: '',
     district: '',
@@ -31,8 +33,11 @@ const ServiceDiscovery = () => {
   useEffect(() => {
     fetchDistricts();
     fetchCategories();
-    fetchServices();
   }, []);
+
+  useEffect(() => {
+    fetchServices();
+  }, [filters, currentPage]);
 
   const fetchDistricts = async () => {
     try {
