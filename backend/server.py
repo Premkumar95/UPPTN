@@ -432,10 +432,11 @@ async def get_services(
         if max_price is not None:
             query["base_price"]["$lte"] = max_price
     
-    services = await db.services.find(query, {"_id": 0}).to_list(1000)
+    # Fetch services and sort by rating (descending)
+    services = await db.services.find(query, {"_id": 0}).sort("rating", -1).to_list(1000)
     
     for service in services:
-        provider = await db.users.find_one({" user_id": service['provider_id']}, {"_id": 0, "name": 1, "phone": 1, "email": 1, "district": 1})
+        provider = await db.users.find_one({"user_id": service['provider_id']}, {"_id": 0, "name": 1, "phone": 1, "email": 1, "district": 1})
         service['provider'] = provider
         # Use the rating from the seeded data if available, otherwise generate
         if 'rating' not in service:
