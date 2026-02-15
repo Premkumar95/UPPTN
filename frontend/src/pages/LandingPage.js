@@ -83,7 +83,7 @@ const LandingPage = () => {
             <p className="text-slate-300 text-lg">Professional services available in all 39 districts of Tamil Nadu</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {categories.map((category, index) => {
               const Icon = category.icon;
               return (
