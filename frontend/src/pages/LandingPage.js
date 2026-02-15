@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/AuthContext';
 import { Navbar } from '../components/Navbar';
+import { Footer } from '../components/Footer';
 import { Button } from '../components/ui/button';
 import { Search, Truck, Package, Wrench, Droplet, ArrowRight } from 'lucide-react';
 
