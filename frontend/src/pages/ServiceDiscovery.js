@@ -67,6 +67,7 @@ const ServiceDiscovery = () => {
 
       const response = await axios.get(`${API}/services?${params.toString()}`);
       setServices(response.data);
+      setCurrentPage(1);
     } catch (error) {
       toast.error('Failed to fetch services');
     } finally {
@@ -74,8 +75,20 @@ const ServiceDiscovery = () => {
     }
   };
 
-  const handleSearch = () => {
-    fetchServices();
+  const handleFilterChange = (key, value) => {
+    setFilters({ ...filters, [key]: value });
+    setCurrentPage(1);
+  };
+
+  // Pagination logic
+  const totalPages = Math.ceil(services.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentServices = services.slice(startIndex, endIndex);
+
+  const goToPage = (page) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
