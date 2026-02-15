@@ -150,8 +150,14 @@ const ServiceDiscovery = () => {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-muted-foreground mb-4">{service.description}</p>
+                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.description}</p>
                       <div className="space-y-2">
+                        {service.district && (
+                          <div className="flex items-center gap-2 text-xs">
+                            <MapPin className="h-3 w-3 text-primary" />
+                            <span className="font-medium">{service.district}</span>
+                          </div>
+                        )}
                         <div className="flex items-center justify-between">
                           <span className="text-sm">Base Price:</span>
                           <span className="font-bold">₹{service.base_price}</span>
