@@ -167,10 +167,23 @@ const RegisterPage = () => {
                       data-testid="password-input"
                       type="password"
                       value={formData.password}
-                      onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                      onChange={(e) => {
+                        setFormData({ ...formData, password: e.target.value });
+                        setErrors({ ...errors, password: validatePassword(e.target.value) });
+                      }}
                       required
-                      minLength="6"
+                      minLength="8"
                     />
+                    {errors.password && errors.password.length > 0 && (
+                      <div className="text-xs text-muted-foreground mt-1">
+                        <p className="font-semibold">Password must contain:</p>
+                        <ul className="list-disc pl-4">
+                          {errors.password.map((err, i) => (
+                            <li key={i}>{err}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
 
                   <div>
@@ -194,9 +207,22 @@ const RegisterPage = () => {
                       type="password"
                       maxLength="4"
                       value={formData.pin_confirm}
-                      onChange={(e) => setFormData({ ...formData, pin_confirm: e.target.value.replace(/\D/g, '') })}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/\D/g, '');
+                        setFormData({ ...formData, pin_confirm: value });
+                        if (value && formData.pin && value !== formData.pin) {
+                          setErrors({ ...errors, pin_confirm: 'Pin does not match' });
+                        } else {
+                          const newErrors = { ...errors };
+                          delete newErrors.pin_confirm;
+                          setErrors(newErrors);
+                        }
+                      }}
                       required
                     />
+                    {errors.pin_confirm && (
+                      <p className="text-xs text-destructive mt-1">{errors.pin_confirm}</p>
+                    )}
                   </div>
 
                   <Button type="submit" className="w-full btn-primary" disabled={loading} data-testid="register-submit-btn">
