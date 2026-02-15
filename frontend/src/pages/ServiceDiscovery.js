@@ -170,14 +170,18 @@ const ServiceDiscovery = () => {
 
           {/* Services Grid */}
           {loading ? (
-            <div className="text-center py-12">Loading services...</div>
+            <div className="text-center py-12 text-slate-300">Loading services...</div>
           ) : services.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-muted-foreground">No services found. Try different filters.</p>
+              <p className="text-slate-400">No services found. Try different filters.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services.map((service, index) => (
+            <>
+              <div className="mb-6 text-slate-300">
+                Showing {startIndex + 1}-{Math.min(endIndex, services.length)} of {services.length} services
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+              {currentServices.map((service, index) => (
                 <motion.div
                   key={service.service_id}
                   initial={{ opacity: 0, y: 20 }}
