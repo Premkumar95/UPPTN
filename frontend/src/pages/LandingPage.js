@@ -24,10 +24,11 @@ const LandingPage = () => {
       
       {/* Hero Section */}
       <section 
-        className="relative bg-gradient-to-br from-primary/20 via-background to-background min-h-[60vh] flex items-center overflow-hidden"
+        className="relative bg-background min-h-[60vh] flex items-center overflow-hidden"
         data-testid="hero-section"
       >
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1761504537447-e39a3085d697?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwzfHx5ZWxsb3clMjBleGNhdmF0b3IlMjBjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwaGVhdnklMjBtYWNoaW5lcnl8ZW58MHx8fHwxNzcxMTMzODM0fDA&ixlib=rb-4.1.0&q=85')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1761504537447-e39a3085d697?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NzN8MHwxfHNlYXJjaHwzfHx5ZWxsb3clMjBleGNhdmF0b3IlMjBjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwaGVhdnklMjBtYWNoaW5lcnl8ZW58MHx8fHwxNzcxMTMzODM0fDA&ixlib=rb-4.1.0&q=85')] bg-cover bg-center opacity-5"></div>
         
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           <motion.div
