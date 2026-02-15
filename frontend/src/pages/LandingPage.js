@@ -39,7 +39,7 @@ const LandingPage = () => {
             className="max-w-3xl"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight text-white">
-              Find Trusted Service Providers Across <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Tamil Nadu</span>
+              Find Trusted Service Providers Across <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">TamilNadu</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 mb-8">
               Connect with verified earth movers, packers, bore well services, and power tool rentals in your district.
@@ -80,7 +80,7 @@ const LandingPage = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Our Service Categories</h2>
-            <p className="text-slate-300 text-lg">Professional services available in all 39 districts of Tamil Nadu</p>
+            <p className="text-slate-300 text-lg">Professional services available in all 39 districts of TamilNadu</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -123,7 +123,7 @@ const LandingPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { title: 'District-wide Coverage', desc: 'Services available in all Tamil Nadu districts' },
+              { title: 'District-wide Coverage', desc: 'Services available in all TamilNadu districts' },
               { title: 'Verified Providers', desc: 'All service providers are verified with ratings' },
               { title: 'Transparent Pricing', desc: 'Compare prices and discounts easily' },
             ].map((feature, index) => (
@@ -156,7 +156,7 @@ const LandingPage = () => {
             className="bg-gradient-to-r from-primary to-secondary rounded-xl p-8 md:p-12 text-center text-white"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Get Started?</h2>
-            <p className="text-lg mb-8 opacity-90">Join thousands of satisfied customers across Tamil Nadu</p>
+            <p className="text-lg mb-8 opacity-90">Join thousands of satisfied customers across TamilNadu</p>
             {!user && (
               <Link to="/register" data-testid="cta-register-btn">
                 <Button size="lg" className="bg-white text-primary hover:bg-slate-100 font-bold gap-2">

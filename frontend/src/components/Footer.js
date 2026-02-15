@@ -11,11 +11,11 @@ export const Footer = () => {
           <div className="space-y-4">
             <h3 className="font-extrabold text-2xl text-primary">ServiceHub TN</h3>
             <p className="text-slate-400 text-sm">
-              Your trusted marketplace for finding verified service providers across Tamil Nadu.
+              Your trusted marketplace for finding verified service providers across TamilNadu.
             </p>
             <div className="flex items-center gap-2 text-sm text-slate-400">
               <MapPin className="h-4 w-4 text-primary" />
-              <span>Tamil Nadu, India</span>
+              <span>TamilNadu, India</span>
             </div>
           </div>
 
