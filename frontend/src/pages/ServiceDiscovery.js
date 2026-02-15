@@ -114,18 +114,17 @@ const ServiceDiscovery = () => {
           {/* Filters */}
           <Card className="mb-8 border-2 shadow-lg">
             <CardContent className="pt-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div className="lg:col-span-2">
                   <Input
                     placeholder="Search services (e.g., JCB, Packers, Drilling...)"
                     data-testid="search-input"
                     className="h-12 text-base"
                     value={filters.keyword}
-                    onChange={(e) => setFilters({ ...filters, keyword: e.target.value })}
-                    onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                    onChange={(e) => handleFilterChange('keyword', e.target.value)}
                   />
                 </div>
-                <Select value={filters.district || 'all'} onValueChange={(value) => setFilters({ ...filters, district: value === 'all' ? '' : value })}>
+                <Select value={filters.district || 'all'} onValueChange={(value) => handleFilterChange('district', value === 'all' ? '' : value)}>
                   <SelectTrigger data-testid="district-select" className="h-12">
                     <SelectValue placeholder="Select District" />
                   </SelectTrigger>
@@ -136,7 +135,7 @@ const ServiceDiscovery = () => {
                     ))}
                   </SelectContent>
                 </Select>
-                <Select value={filters.category || 'all'} onValueChange={(value) => setFilters({ ...filters, category: value === 'all' ? '' : value })}>
+                <Select value={filters.category || 'all'} onValueChange={(value) => handleFilterChange('category', value === 'all' ? '' : value)}>
                   <SelectTrigger data-testid="category-select" className="h-12">
                     <SelectValue placeholder="Select Category" />
                   </SelectTrigger>
@@ -148,9 +147,24 @@ const ServiceDiscovery = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <Button onClick={handleSearch} className="btn-primary gap-2 w-full h-12 text-base font-bold" data-testid="search-btn">
-                <Search className="h-5 w-5" /> SEARCH SERVICES
-              </Button>
+              
+              {/* Items per page selector */}
+              <div className="flex items-center gap-4 mt-4">
+                <span className="text-sm text-slate-300">Show:</span>
+                <Select value={itemsPerPage.toString()} onValueChange={(value) => { setItemsPerPage(Number(value)); setCurrentPage(1); }}>
+                  <SelectTrigger className="w-24 h-10">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="10">10</SelectItem>
+                    <SelectItem value="15">15</SelectItem>
+                    <SelectItem value="20">20</SelectItem>
+                    <SelectItem value="30">30</SelectItem>
+                    <SelectItem value="50">50</SelectItem>
+                  </SelectContent>
+                </Select>
+                <span className="text-sm text-slate-400">services per page</span>
+              </div>
             </CardContent>
           </Card>
 
