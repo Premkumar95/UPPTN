@@ -140,7 +140,7 @@ const ProviderDashboard = () => {
                       </div>
                       <div>
                         <Label htmlFor="category">Category</Label>
-                        <Select value={formData.category} onValueChange={(value) => setFormData({ ...formData, category: value })}>
+                        <Select value={formData.category} onValueChange={(value) => setFormData({ ...formData, category: value })} required>
                           <SelectTrigger data-testid="category-select">
                             <SelectValue placeholder="Select category" />
                           </SelectTrigger>
