@@ -40,21 +40,15 @@ export const Navbar = () => {
               </Link>
             )}
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-slate-200 hover:text-primary hover:bg-slate-800" data-testid="language-toggle">
-                  <Globe className="h-5 w-5" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-slate-800 border-slate-700">
-                <DropdownMenuItem onClick={toggleLanguage} className="text-slate-200 hover:text-primary" data-testid="language-en">
-                  English {language === 'en' && '✓'}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={toggleLanguage} className="text-slate-200 hover:text-primary" data-testid="language-ta">
-                  தமிழ் {language === 'ta' && '✓'}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Select value={language} onValueChange={toggleLanguage}>
+              <SelectTrigger className="w-32 h-10 border-slate-600 text-slate-200 bg-slate-800" data-testid="language-select">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent className="bg-slate-800 border-slate-700">
+                <SelectItem value="en" className="text-slate-200">English</SelectItem>
+                <SelectItem value="ta" className="text-slate-200">தமிழ்</SelectItem>
+              </SelectContent>
+            </Select>
 
             {user ? (
               <Button onClick={logout} variant="destructive" className="gap-2" data-testid="logout-button">
