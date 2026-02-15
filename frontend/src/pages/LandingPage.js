@@ -70,7 +70,7 @@ const LandingPage = () => {
       </section>
 
       {/* Categories Section */}
-      <section className="py-16 md:py-24" data-testid="categories-section">
+      <section className="py-16 md:py-24 bg-slate-800/50" data-testid="categories-section">
         <div className="container mx-auto px-4 md:px-8">
           <motion.div
             initial={{ opacity: 0 }}
@@ -78,8 +78,8 @@ const LandingPage = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Service Categories</h2>
-            <p className="text-muted-foreground text-lg">Professional services available in all 37 districts of Tamil Nadu</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Our Service Categories</h2>
+            <p className="text-slate-300 text-lg">Professional services available in all 39 districts of Tamil Nadu</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
