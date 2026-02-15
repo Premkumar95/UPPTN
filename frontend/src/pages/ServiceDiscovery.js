@@ -37,7 +37,7 @@ const ServiceDiscovery = () => {
 
   useEffect(() => {
     fetchServices();
-  }, [filters, currentPage]);
+  }, [filters]);
 
   const fetchDistricts = async () => {
     try {
