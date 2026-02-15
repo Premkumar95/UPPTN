@@ -213,4 +213,11 @@ const ServiceDiscovery = () => {
                 </motion.div>
               ))}
             </div>
-          )}
+          )}        </motion.div>
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+export default ServiceDiscovery;
