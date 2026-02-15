@@ -81,24 +81,34 @@ const ServiceDiscovery = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-3xl sm:text-4xl font-bold mb-8">{t('services')}</h1>
+          <div className="mb-8">
+            <h1 className="text-4xl sm:text-5xl font-black mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              {t('services')}
+            </h1>
+            {filters.category && (
+              <p className="text-lg text-muted-foreground">
+                Showing results for <span className="font-bold text-foreground">{filters.category}</span>
+              </p>
+            )}
+          </div>
 
           {/* Filters */}
-          <Card className="mb-8">
+          <Card className="mb-8 border-2 shadow-lg">
             <CardContent className="pt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
                 <div className="lg:col-span-2">
                   <Input
-                    placeholder={t('search')}
+                    placeholder="Search services (e.g., JCB, Packers, Drilling...)"
                     data-testid="search-input"
+                    className="h-12 text-base"
                     value={filters.keyword}
                     onChange={(e) => setFilters({ ...filters, keyword: e.target.value })}
                     onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
                   />
                 </div>
-                <Select value={filters.district} onValueChange={(value) => setFilters({ ...filters, district: value === 'all' ? '' : value })}>
-                  <SelectTrigger data-testid="district-select">
-                    <SelectValue placeholder={t('allDistricts')} />
+                <Select value={filters.district || 'all'} onValueChange={(value) => setFilters({ ...filters, district: value === 'all' ? '' : value })}>
+                  <SelectTrigger data-testid="district-select" className="h-12">
+                    <SelectValue placeholder="Select District" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">All Districts</SelectItem>
@@ -107,9 +117,9 @@ const ServiceDiscovery = () => {
                     ))}
                   </SelectContent>
                 </Select>
-                <Select value={filters.category} onValueChange={(value) => setFilters({ ...filters, category: value === 'all' ? '' : value })}>
-                  <SelectTrigger data-testid="category-select">
-                    <SelectValue placeholder={t('allCategories')} />
+                <Select value={filters.category || 'all'} onValueChange={(value) => setFilters({ ...filters, category: value === 'all' ? '' : value })}>
+                  <SelectTrigger data-testid="category-select" className="h-12">
+                    <SelectValue placeholder="Select Category" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">All Categories</SelectItem>
@@ -119,8 +129,8 @@ const ServiceDiscovery = () => {
                   </SelectContent>
                 </Select>
               </div>
-              <Button onClick={handleSearch} className="btn-primary gap-2 w-full" data-testid="search-btn">
-                <Search className="h-4 w-4" /> Search
+              <Button onClick={handleSearch} className="btn-primary gap-2 w-full h-12 text-base font-bold" data-testid="search-btn">
+                <Search className="h-5 w-5" /> SEARCH SERVICES
               </Button>
             </CardContent>
           </Card>
