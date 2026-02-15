@@ -109,7 +109,7 @@ const LandingPage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 md:py-24 bg-muted/30" data-testid="features-section">
+      <section className="py-16 md:py-24 bg-slate-900" data-testid="features-section">
         <div className="container mx-auto px-4 md:px-8">
           <motion.div
             initial={{ opacity: 0 }}
@@ -117,7 +117,7 @@ const LandingPage = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Why Choose ServiceHub TN?</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Why Choose ServiceHub TN?</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -134,11 +134,11 @@ const LandingPage = () => {
                 className="text-center"
                 data-testid={`feature-${index}`}
               >
-                <div className="bg-primary/10 w-16 h-16 rounded-sm mx-auto mb-4 flex items-center justify-center">
+                <div className="bg-primary/10 w-16 h-16 rounded-xl mx-auto mb-4 flex items-center justify-center">
                   <div className="bg-primary w-8 h-8 rounded-sm"></div>
                 </div>
-                <h3 className="font-bold text-xl mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.desc}</p>
+                <h3 className="font-bold text-xl mb-2 text-white">{feature.title}</h3>
+                <p className="text-slate-400">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -146,19 +146,19 @@ const LandingPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24" data-testid="cta-section">
+      <section className="py-16 md:py-24 bg-slate-800" data-testid="cta-section">
         <div className="container mx-auto px-4 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="bg-gradient-to-r from-primary to-primary/80 rounded-lg p-8 md:p-12 text-center text-white"
+            className="bg-gradient-to-r from-primary to-secondary rounded-xl p-8 md:p-12 text-center text-white"
           >
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ready to Get Started?</h2>
             <p className="text-lg mb-8 opacity-90">Join thousands of satisfied customers across Tamil Nadu</p>
             {!user && (
               <Link to="/register" data-testid="cta-register-btn">
-                <Button size="lg" variant="secondary" className="gap-2">
+                <Button size="lg" className="bg-white text-primary hover:bg-slate-100 font-bold gap-2">
                   Register Now <ArrowRight className="h-5 w-5" />
                 </Button>
               </Link>
@@ -167,12 +167,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t py-8" data-testid="footer">
-        <div className="container mx-auto px-4 md:px-8 text-center text-muted-foreground">
-          <p>© 2025 ServiceHub TN. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
