@@ -79,8 +79,8 @@ const LandingPage = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">Our Service Categories</h2>
-            <p className="text-slate-300 text-lg">Professional services available in all 39 districts of TamilNadu</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">{t('ourCategories')}</h2>
+            <p className="text-slate-300 text-lg">{t('professionalServices')}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
