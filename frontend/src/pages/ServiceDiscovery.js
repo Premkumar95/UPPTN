@@ -152,42 +152,59 @@ const ServiceDiscovery = () => {
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   data-testid={`service-card-${index}`}
                 >
-                  <Card className="h-full hover:border-primary/50 transition-colors">
-                    <CardHeader>
-                      <CardTitle className="text-xl">{service.name}</CardTitle>
-                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span>{service.rating}</span>
+                  <Card className="h-full hover:border-primary transition-all duration-300 hover:shadow-xl border-2 overflow-hidden group">
+                    <CardHeader className="bg-gradient-to-br from-primary/5 to-secondary/5 pb-4">
+                      <div className="flex items-start justify-between mb-2">
+                        <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                          {service.name}
+                        </CardTitle>
+                        {service.discount > 0 && (
+                          <div className="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                            {service.discount}% OFF
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-1">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`h-4 w-4 ${
+                                i < Math.floor(service.rating)
+                                  ? 'fill-yellow-400 text-yellow-400'
+                                  : i < service.rating
+                                  ? 'fill-yellow-200 text-yellow-400'
+                                  : 'fill-gray-200 text-gray-300'
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <span className="text-sm font-bold text-foreground">{service.rating}/5</span>
+                        <Award className="h-4 w-4 text-yellow-500" />
                       </div>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="pt-4">
                       <p className="text-sm text-muted-foreground mb-4 line-clamp-2">{service.description}</p>
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         {service.district && (
-                          <div className="flex items-center gap-2 text-xs">
-                            <MapPin className="h-3 w-3 text-primary" />
-                            <span className="font-medium">{service.district}</span>
+                          <div className="flex items-center gap-2 text-sm bg-blue-50 p-2 rounded-lg">
+                            <MapPin className="h-4 w-4 text-blue-600" />
+                            <span className="font-semibold text-blue-900">{service.district}</span>
                           </div>
                         )}
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm">Base Price:</span>
-                          <span className="font-bold">₹{service.base_price}</span>
+                        <div className="flex items-center justify-between p-3 bg-gradient-to-r from-orange-50 to-amber-50 rounded-lg">
+                          <span className="text-sm font-medium">Price:</span>
+                          <span className="text-xl font-bold text-primary">₹{service.base_price}</span>
                         </div>
-                        {service.discount > 0 && (
-                          <div className="flex items-center justify-between">
-                            <span className="text-sm">{t('discount')}:</span>
-                            <span className="text-green-600 font-semibold">{service.discount}% OFF</span>
-                          </div>
-                        )}
-                        <div className="text-xs text-muted-foreground">
-                          Provider: {service.provider?.name || 'N/A'}
+                        <div className="text-xs text-muted-foreground bg-gray-50 p-2 rounded">
+                          <strong>Provider:</strong> {service.provider?.name || 'N/A'}
                         </div>
                       </div>
                     </CardContent>
-                    <CardFooter>
+                    <CardFooter className="pt-4">
                       <Link to={`/services/${service.service_id}`} className="w-full">
-                        <Button className="w-full" data-testid={`view-details-btn-${index}`}>
-                          {t('viewDetails')}
+                        <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 font-bold" data-testid={`view-details-btn-${index}`}>
+                          VIEW DETAILS →
                         </Button>
                       </Link>
                     </CardFooter>
