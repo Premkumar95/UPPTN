@@ -5,7 +5,7 @@ import json
 from datetime import datetime
 
 class ServiceMarketplaceAPITester:
-    def __init__(self, base_url="https://earth-move-portal.preview.emergentagent.com/api"):
+    def __init__(self, base_url="https://local-services-tn.preview.emergentagent.com/api"):
         self.base_url = base_url
         self.user_token = None
         self.provider_token = None
