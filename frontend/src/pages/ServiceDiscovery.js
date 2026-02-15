@@ -214,10 +214,3 @@ const ServiceDiscovery = () => {
               ))}
             </div>
           )}
-        </motion.div>
-      </div>
-    </div>
-  );
-};
-
-export default ServiceDiscovery;
