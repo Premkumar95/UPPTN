@@ -85,8 +85,8 @@ const ServiceDiscovery = () => {
           {/* Filters */}
           <Card className="mb-8">
             <CardContent className="pt-6">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="md:col-span-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+                <div className="lg:col-span-2">
                   <Input
                     placeholder={t('search')}
                     data-testid="search-input"
@@ -95,6 +95,17 @@ const ServiceDiscovery = () => {
                     onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
                   />
                 </div>
+                <Select value={filters.district} onValueChange={(value) => setFilters({ ...filters, district: value === 'all' ? '' : value })}>
+                  <SelectTrigger data-testid="district-select">
+                    <SelectValue placeholder={t('allDistricts')} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Districts</SelectItem>
+                    {districts.map((dist) => (
+                      <SelectItem key={dist} value={dist}>{dist}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
                 <Select value={filters.category} onValueChange={(value) => setFilters({ ...filters, category: value === 'all' ? '' : value })}>
                   <SelectTrigger data-testid="category-select">
                     <SelectValue placeholder={t('allCategories')} />
@@ -106,10 +117,10 @@ const ServiceDiscovery = () => {
                     ))}
                   </SelectContent>
                 </Select>
-                <Button onClick={handleSearch} className="btn-primary gap-2" data-testid="search-btn">
-                  <Search className="h-4 w-4" /> Search
-                </Button>
               </div>
+              <Button onClick={handleSearch} className="btn-primary gap-2 w-full" data-testid="search-btn">
+                <Search className="h-4 w-4" /> Search
+              </Button>
             </CardContent>
           </Card>
 
