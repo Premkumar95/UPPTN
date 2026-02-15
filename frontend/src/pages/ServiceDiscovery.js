@@ -183,12 +183,12 @@ const ServiceDiscovery = () => {
                   <Card className="h-full hover:border-primary transition-all duration-300 hover:shadow-xl border-2 overflow-hidden group">
                     <CardHeader className="bg-gradient-to-br from-primary/5 to-secondary/5 pb-4">
                       <div className="flex items-start justify-between mb-2">
-                        <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                          {service.name}
+                        <CardTitle className="text-xl font-bold text-white group-hover:text-primary transition-colors">
+                          {service.provider?.name || service.name}
                         </CardTitle>
                         {service.discount > 0 && (
                           <div className="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">
-                            {service.discount}% OFF
+                            {service.discount}% {t('discount')}
                           </div>
                         )}
                       </div>
