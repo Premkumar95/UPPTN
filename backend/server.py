@@ -411,6 +411,9 @@ async def get_services(
 ):
     query = {}
     
+    if district:
+        query["district"] = {"$regex": district, "$options": "i"}
+    
     if category:
         query["category"] = {"$regex": category, "$options": "i"}
     
@@ -418,7 +421,8 @@ async def get_services(
         query["$or"] = [
             {"name": {"$regex": keyword, "$options": "i"}},
             {"description": {"$regex": keyword, "$options": "i"}},
-            {"category": {"$regex": keyword, "$options": "i"}}
+            {"category": {"$regex": keyword, "$options": "i"}},
+            {"keywords": {"$regex": keyword, "$options": "i"}}
         ]
     
     if min_price is not None or max_price is not None:
@@ -431,9 +435,11 @@ async def get_services(
     services = await db.services.find(query, {"_id": 0}).to_list(1000)
     
     for service in services:
-        provider = await db.users.find_one({"user_id": service['provider_id']}, {"_id": 0, "name": 1, "phone": 1, "email": 1})
+        provider = await db.users.find_one({" user_id": service['provider_id']}, {"_id": 0, "name": 1, "phone": 1, "email": 1, "district": 1})
         service['provider'] = provider
-        service['rating'] = round(random.uniform(3.5, 5.0), 1)
+        # Use the rating from the seeded data if available, otherwise generate
+        if 'rating' not in service:
+            service['rating'] = round(random.uniform(3.5, 5.0), 1)
     
     return services
 
