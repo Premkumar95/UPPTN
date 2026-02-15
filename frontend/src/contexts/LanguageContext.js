@@ -180,8 +180,12 @@ const translations = {
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState('en');
 
-  const toggleLanguage = () => {
-    setLanguage((prev) => (prev === 'en' ? 'ta' : 'en'));
+  const toggleLanguage = (newLang) => {
+    if (typeof newLang === 'string' && (newLang === 'en' || newLang === 'ta')) {
+      setLanguage(newLang);
+    } else {
+      setLanguage((prev) => (prev === 'en' ? 'ta' : 'en'));
+    }
   };
 
   const t = (key) => {
